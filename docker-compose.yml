@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: galactic-war-postgres
+    environment:
+      POSTGRES_DB: galactic_war
+      POSTGRES_USER: galactic_war
+      POSTGRES_PASSWORD: galactic_war
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U galactic_war -d galactic_war"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
