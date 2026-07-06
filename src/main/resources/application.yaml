@@ -3,3 +3,24 @@ spring:
     name: galactic.war.analytics.platform
   profiles:
     default: dev
+
+helldivers:
+  api:
+    base-url: https://api.helldivers2.dev
+    super-client: galactic-war-analytics-platform
+    super-contact: https://github.com/JZissis/galactic-war-analytics
+    connect-timeout: 5s
+    read-timeout: 10s
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      helldiversApi:
+        sliding-window-size: 20
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+  retry:
+    instances:
+      helldiversApi:
+        max-attempts: 3
+        wait-duration: 500ms
