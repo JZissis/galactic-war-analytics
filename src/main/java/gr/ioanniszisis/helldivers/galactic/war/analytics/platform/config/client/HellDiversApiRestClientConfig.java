@@ -11,6 +11,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.client.RestClient;
 
 import java.time.Duration;
@@ -36,7 +37,7 @@ public class HellDiversApiRestClientConfig {
                 })
                 .requestInterceptor(new RateLimitInterceptor())
                 .defaultStatusHandler(
-                        status -> status.value() == 429,
+                        status -> status.value() == HttpStatus.TOO_MANY_REQUESTS.value(),
                         (request, response) -> {
                             throw new HelldiversApiRateLimitException(parseRetryAfter(response.getHeaders()));
                         })

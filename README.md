@@ -31,7 +31,7 @@ Tests run under the `test` profile (in-memory H2).
 ## Roadmap
 
 - [x] Phase 0 — Foundation (repo, docker-compose, profiles)
-- [ ] Phase 1 — External API client (Helldivers 2 API, Resilience4j)
+- [x] Phase 1 — External API client (Helldivers 2 API, Resilience4j)
 - [ ] Phase 2 — Persistence & scheduled ingestion (time-series war snapshots)
 - [ ] Phase 3 — Analytics/domain services
 - [ ] Phase 4 — REST API + OpenAPI docs
