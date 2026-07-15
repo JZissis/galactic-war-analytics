@@ -29,17 +29,3 @@ helldivers-api-rest:
     v2:
       available-dispatches-url: /api/v2/dispatches # for specific dispatch, append /{index}
       space-station-info-url: /api/v2/space-stations # for specific space station, append /{index}
-
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      helldiversApi:
-        sliding-window-size: 20
-        failure-rate-threshold: 50
-        wait-duration-in-open-state: 30s
-  retry:
-    instances:
-      helldiversApi:
-        max-attempts: 3
-        wait-duration: 500ms
