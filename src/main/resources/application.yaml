@@ -4,13 +4,32 @@ spring:
   profiles:
     default: dev
 
-helldivers:
-  api:
-    base-url: https://api.helldivers2.dev
-    super-client: galactic-war-analytics-platform
-    super-contact: https://github.com/JZissis/galactic-war-analytics
-    connect-timeout: 5s
-    read-timeout: 10s
+helldivers-api-rest:
+  base-url: https://api.helldivers2.dev
+  super-client: galactic-war-analytics-platform
+  super-contact: https://github.com/JZissis/galactic-war-analytics
+  connection-manager-metrics-tag: helldivers-api
+  endpoints:
+    raw:
+      current-war-id-url: /raw/api/WarSeason/current/WarID
+      current-war-status-url: /raw/api/WarSeason/{warId}/Status
+      current-war-info-url: /raw/api/WarSeason/{warId}/WarInfo
+      current-war-summary-url: /raw/api/Stats/war/{warId}/summary
+      news-feed-url: /raw/api/NewsFeed/{warId}
+      active-assignments-url: /raw/api/v2/Assignment/War/{warId}
+      space-station-info-url: /raw/api/v2/SpaceStation/War/{warId}/{index}
+    v1:
+      current-war-state-url: /api/v1/war
+      available-assignments-url: /api/v1/assignments # for specific assignment, append /{index}
+      available-campaigns-url: /api/v1/campaigns # for specific campaign, append /{index}
+      available-dispatches-url: /api/v1/dispatches # for specific dispatch, append /{index}
+      planet-info-url: /api/v1/planets # for specific planet, append /{index}
+      planet-events-url: /api/v1/planet-events
+      steam-news-feed-url: /api/v1/steam # for specific news item, append /{gid} - this is the Steam GID
+    v2:
+      available-dispatches-url: /api/v2/dispatches # for specific dispatch, append /{index}
+      space-station-info-url: /api/v2/space-stations # for specific space station, append /{index}
+
 
 resilience4j:
   circuitbreaker:
