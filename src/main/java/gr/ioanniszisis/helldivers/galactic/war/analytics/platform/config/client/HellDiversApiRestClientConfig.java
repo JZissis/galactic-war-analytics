@@ -4,7 +4,7 @@ import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.client.
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.client.net.HttpClientFactory;
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.client.net.RateLimitInterceptor;
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.properties.HellDiversApiRestClientProperties;
-import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.exception.HelldiversApiRateLimitException;
+import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.exception.HelldiversApiRateLimitException;
 import io.github.resilience4j.ratelimiter.RateLimiter;
 import io.github.resilience4j.retry.Retry;
 import io.micrometer.core.instrument.MeterRegistry;

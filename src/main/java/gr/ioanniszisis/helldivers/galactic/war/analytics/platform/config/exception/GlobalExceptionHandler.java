@@ -1,4 +1,4 @@
-package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.exception;
+package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.exception;
 
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.client.HelldiversApiResilienceConfig;
 import io.github.resilience4j.ratelimiter.RequestNotPermitted;
@@ -13,6 +13,7 @@ import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+@SuppressWarnings("NullableProblems")
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {

@@ -2,7 +2,7 @@ package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.service.helld
 
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.client.net.GenericRestClient;
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.properties.HellDiversApiRestClientProperties;
-import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.exception.HelldiversApiEmptyResponseException;
+import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.exception.HelldiversApiEmptyResponseException;
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.WarId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

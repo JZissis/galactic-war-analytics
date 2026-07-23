@@ -1,4 +1,4 @@
-package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.exception;
+package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.exception;
 
 /**
  * Thrown when the HellDivers API responds successfully but with no body, so there is

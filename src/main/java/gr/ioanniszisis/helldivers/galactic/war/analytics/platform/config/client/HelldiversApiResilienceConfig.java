@@ -1,6 +1,6 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.client;
 
-import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.exception.HelldiversApiRateLimitException;
+import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.exception.HelldiversApiRateLimitException;
 import io.github.resilience4j.ratelimiter.RateLimiter;
 import io.github.resilience4j.ratelimiter.RateLimiterConfig;
 import io.github.resilience4j.retry.Retry;
