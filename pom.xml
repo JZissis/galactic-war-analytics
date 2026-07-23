@@ -133,6 +133,12 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>2.4-M6-groovy-4.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>

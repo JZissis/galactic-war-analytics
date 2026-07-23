@@ -16,7 +16,8 @@ public class HelldiversApiResilienceConfig {
 
     /** 4 req / 10s keeps one request of headroom under the documented 5 req / 10s API limit. */
     private static final int LIMIT_FOR_PERIOD = 4;
-    private static final Duration LIMIT_REFRESH_PERIOD = Duration.ofSeconds(10);
+    /** Public so the exception handler can advertise it as the {@code Retry-After} for local rate-limit rejections. */
+    public static final Duration LIMIT_REFRESH_PERIOD = Duration.ofSeconds(10);
     /** Callers block for a permit up to one full refresh window instead of failing fast. */
     private static final Duration PERMIT_WAIT_TIMEOUT = Duration.ofSeconds(11);
 
