@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +19,8 @@ public class HelldiversApiService {
 
     public BigInteger getCurrentWarId() {
         String currentWarIdUrl = helldiversApiRestClientProperties.getEndpoints().getRaw().getCurrentWarIdUrl();
-        WarId response = helldiversApiRestClient.get(currentWarIdUrl, WarId.class).getBody();
-        if (response == null) {
-            throw new HelldiversApiEmptyResponseException("HellDivers API returned an empty body for the current war id");
-        }
-        return response.id();
+        return Optional.ofNullable(helldiversApiRestClient.get(currentWarIdUrl, WarId.class).getBody())
+                .orElseThrow(() -> new HelldiversApiEmptyResponseException("HellDivers API returned an empty body for the current war id"))
+                .id();
     }
 }
