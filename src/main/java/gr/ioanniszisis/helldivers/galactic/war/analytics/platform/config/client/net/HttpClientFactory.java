@@ -13,6 +13,12 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 import java.time.Duration;
 
+/**
+ * Creates Apache HttpClient 5 based request factories for Spring's {@code RestClient}.
+ *
+ * <p>The factory uses a pooled connection manager sized and timed from {@link HttpClientProperties},
+ * and can register pool metrics with Micrometer.
+ */
 @UtilityClass
 public class HttpClientFactory {
 
@@ -31,7 +37,8 @@ public class HttpClientFactory {
      * Creates a custom HTTP client factory with metrics.
      *
      * @param httpClientProperties the properties for the HTTP client
-     * @param meterRegistry the MeterRegistry for metrics binding
+     * @param meterRegistry the MeterRegistry for metrics binding, or {@code null} to skip metrics
+     * @return the configured HttpComponentsClientHttpRequestFactory
      */
     public HttpComponentsClientHttpRequestFactory createHttpClientFactory(HttpClientProperties httpClientProperties,
                                                                           MeterRegistry meterRegistry) {

@@ -16,12 +16,28 @@ import org.springframework.web.client.RestClient;
 
 import java.time.Duration;
 
+/**
+ * Builds the {@link GenericRestClient} used to call the Helldivers API.
+ *
+ * <p>The client uses a pooled Apache HttpClient, sends the {@code X-Super-Client} and
+ * {@code X-Super-Contact} headers the API asks for, logs rate-limit headers, and turns
+ * {@code 429 Too Many Requests} responses into {@link HelldiversApiRateLimitException}.
+ */
 @Configuration
 public class HellDiversApiRestClientConfig {
 
     /** Fallback when a 429 arrives without a Retry-After header: wait out a full rate-limit window. */
     private static final Duration DEFAULT_RETRY_AFTER = Duration.ofSeconds(10);
 
+    /**
+     * Creates the Helldivers API client.
+     *
+     * @param hellDiversApiRestClientProperties base URL, identification headers and HTTP client settings
+     * @param meterRegistry                     registry for connection pool metrics
+     * @param helldiversApiRateLimiter          rate limiter applied to every call
+     * @param helldiversApiRetry                retry policy applied to every call
+     * @return the configured client
+     */
     @Bean
     public GenericRestClient helldiversApiRestClient(HellDiversApiRestClientProperties hellDiversApiRestClientProperties,
                                                      MeterRegistry meterRegistry,
@@ -46,6 +62,13 @@ public class HellDiversApiRestClientConfig {
         return new GenericRestClient(restClient, helldiversApiRateLimiter, helldiversApiRetry);
     }
 
+    /**
+     * Reads the {@code Retry-After} header of a 429 response.
+     *
+     * @param headers the response headers
+     * @return the wait time from the header in seconds, or {@code DEFAULT_RETRY_AFTER} when the
+     *         header is missing or is not a number
+     */
     private static Duration parseRetryAfter(HttpHeaders headers) {
         String retryAfter = headers.getFirst(HttpHeaders.RETRY_AFTER);
         if (retryAfter != null) {

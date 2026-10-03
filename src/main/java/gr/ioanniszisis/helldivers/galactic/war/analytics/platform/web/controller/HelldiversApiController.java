@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
 
+/**
+ * REST endpoints that expose Helldivers Galactic War data, under {@code /api/helldivers}.
+ */
 @RestController
 @RequestMapping("/api/helldivers")
 @RequiredArgsConstructor
@@ -15,6 +18,11 @@ public class HelldiversApiController {
 
     private final HelldiversApiService helldiversApiService;
 
+    /**
+     * Returns the identifier of the current war season.
+     *
+     * @return the current war id
+     */
     @GetMapping("/current-war-id")
     public BigInteger getCurrentWarId() {
         return helldiversApiService.getCurrentWarId();

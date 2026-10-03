@@ -5,15 +5,25 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * Settings for the Helldivers API client, bound from the {@code helldivers-api-rest} prefix.
+ *
+ * <p>Adds the identification headers and endpoint paths on top of the generic
+ * {@link HttpClientProperties}.
+ */
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "helldivers-api-rest")
 public class HellDiversApiRestClientProperties extends HttpClientProperties {
 
+    /** Value of the {@code X-Super-Client} header: the name of this application. */
     private String superClient;
+    /** Value of the {@code X-Super-Contact} header: how the API maintainers can reach us. */
     private String superContact;
+    /** Endpoint paths, grouped by API version. */
     private EndpointsProperties endpoints;
 
+    /** Endpoint paths grouped by API version. */
     @Getter
     @Setter
     public static class EndpointsProperties {
@@ -22,6 +32,7 @@ public class HellDiversApiRestClientProperties extends HttpClientProperties {
         private V2EndpointsProperties v2;
     }
 
+    /** Paths of the {@code /raw} endpoints, which proxy ArrowHead's own API and return its payloads as-is. */
     @Getter
     @Setter
     public static class RawEndpointsProperties {
@@ -34,6 +45,7 @@ public class HellDiversApiRestClientProperties extends HttpClientProperties {
         private String spaceStationInfoUrl;
     }
 
+    /** Paths of the community {@code /api/v1} endpoints, which return cleaned-up, aggregated payloads. */
     @Getter
     @Setter
     public static class V1EndpointsProperties {
@@ -46,6 +58,7 @@ public class HellDiversApiRestClientProperties extends HttpClientProperties {
         private String steamNewsFeedUrl;
     }
 
+    /** Paths of the community {@code /api/v2} endpoints. */
     @Getter
     @Setter
     public static class V2EndpointsProperties {

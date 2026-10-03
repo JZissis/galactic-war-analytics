@@ -16,22 +16,50 @@ import java.util.function.Supplier;
 
 import static java.util.Objects.nonNull;
 
+/**
+ * Thin wrapper around Spring's {@link RestClient} for JSON {@code GET} calls.
+ *
+ * <p>Every call sends default {@code Accept} and {@code Accept-Charset} headers and runs through
+ * the optional {@link RateLimiter} and {@link Retry} decorators, so callers do not deal with
+ * resilience concerns themselves.
+ */
 public class GenericRestClient {
 
     private final RestClient restClient;
     private final RateLimiter rateLimiter;
     private final Retry retry;
 
+    /**
+     * Creates a client without rate limiting or retries.
+     *
+     * @param restClient the underlying Spring client
+     */
     public GenericRestClient(RestClient restClient) {
         this(restClient, null, null);
     }
 
+    /**
+     * Creates a client with resilience decorators.
+     *
+     * @param restClient  the underlying Spring client
+     * @param rateLimiter rate limiter applied to every call, or {@code null} for none
+     * @param retry       retry policy applied to every call, or {@code null} for none
+     */
     public GenericRestClient(RestClient restClient, RateLimiter rateLimiter, Retry retry) {
         this.restClient = restClient;
         this.rateLimiter = rateLimiter;
         this.retry = retry;
     }
 
+    /**
+     * Sends a {@code GET} request with URI template variables.
+     *
+     * @param url          the URL or URL template, relative to the base URL
+     * @param uriVariables values for the template variables in {@code url}
+     * @param responseType the class to map the response body to
+     * @param <T>          the response body type
+     * @return the response, with the body mapped to {@code responseType}
+     */
     public <T> ResponseEntity<T> get(String url, Map<String, String> uriVariables, Class<T> responseType) {
         return execute(() -> this.restClient.get()
                 .uri(url, (uriBuilder) -> uriBuilder.build(uriVariables))
@@ -40,6 +68,14 @@ public class GenericRestClient {
                 .toEntity(responseType));
     }
 
+    /**
+     * Sends a {@code GET} request.
+     *
+     * @param url          the URL, relative to the base URL
+     * @param responseType the class to map the response body to
+     * @param <T>          the response body type
+     * @return the response, with the body mapped to {@code responseType}
+     */
     public <T> ResponseEntity<T> get(String url, Class<T> responseType) {
         return execute(() -> this.restClient.get()
                 .uri(url, UriBuilder::build)
@@ -48,6 +84,15 @@ public class GenericRestClient {
                 .toEntity(responseType));
     }
 
+    /**
+     * Sends a {@code GET} request with query parameters.
+     *
+     * @param url          the URL, relative to the base URL
+     * @param queryParams  the query parameters to append
+     * @param responseType the class to map the response body to
+     * @param <T>          the response body type
+     * @return the response, with the body mapped to {@code responseType}
+     */
     public <T> ResponseEntity<T> get(String url, MultiValueMap<String, String> queryParams, Class<T> responseType) {
         return execute(() -> this.restClient.get()
                 .uri(url, (uriBuilder) -> uriBuilder.queryParams(queryParams).build())
@@ -56,6 +101,16 @@ public class GenericRestClient {
                 .toEntity(responseType));
     }
 
+    /**
+     * Sends a {@code GET} request with URI template variables and query parameters.
+     *
+     * @param url          the URL or URL template, relative to the base URL
+     * @param uriVariables values for the template variables in {@code url}
+     * @param queryParams  the query parameters to append
+     * @param responseType the class to map the response body to
+     * @param <T>          the response body type
+     * @return the response, with the body mapped to {@code responseType}
+     */
     public <T> ResponseEntity<T> get(String url, Map<String, String> uriVariables, MultiValueMap<String, String> queryParams, Class<T> responseType) {
         return execute(() -> this.restClient.get()
                 .uri(url, (uriBuilder) -> uriBuilder.queryParams(queryParams).build(uriVariables))
@@ -64,6 +119,15 @@ public class GenericRestClient {
                 .toEntity(responseType));
     }
 
+    /**
+     * Sends a {@code GET} request with extra headers.
+     *
+     * @param url               the URL, relative to the base URL
+     * @param additionalHeaders headers to send on top of the defaults; they replace defaults with the same name
+     * @param responseType      the class to map the response body to
+     * @param <T>               the response body type
+     * @return the response, with the body mapped to {@code responseType}
+     */
     public <T> ResponseEntity<T> get(String url, HttpHeaders additionalHeaders, Class<T> responseType) {
         return execute(() -> this.restClient.get()
                 .uri(url, UriBuilder::build)
@@ -75,6 +139,10 @@ public class GenericRestClient {
     /**
      * Runs the call through the configured resilience decorators. The rate limiter is the
      * innermost decorator so every retry attempt acquires a fresh permit.
+     *
+     * @param apiCall the HTTP call to run
+     * @param <T>     the result type
+     * @return the result of the first successful attempt
      */
     private <T> T execute(Supplier<T> apiCall) {
         Supplier<T> decorated = apiCall;

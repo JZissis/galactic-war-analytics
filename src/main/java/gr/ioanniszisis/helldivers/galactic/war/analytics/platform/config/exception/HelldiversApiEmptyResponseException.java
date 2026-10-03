@@ -6,6 +6,11 @@ package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.except
  */
 public class HelldiversApiEmptyResponseException extends RuntimeException {
 
+    /**
+     * Creates the exception.
+     *
+     * @param message describes which call returned the empty body
+     */
     public HelldiversApiEmptyResponseException(String message) {
         super(message);
     }

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <property name="severity" value="warning"/>
+    <module name="TreeWalker">
+        <!-- Every class, interface, enum and record needs a Javadoc -->
+        <module name="MissingJavadocType">
+            <property name="scope" value="private"/>
+        </module>
+        <!-- Records: every component needs a @param -->
+        <module name="JavadocType">
+            <property name="allowMissingParamTags" value="false"/>
+        </module>
+
+        <!-- Every public/protected method and constructor -->
+        <module name="MissingJavadocMethod">
+            <property name="id" value="publicMethods"/>
+            <property name="scope" value="protected"/>
+            <property name="allowMissingPropertyJavadoc" value="true"/>
+            <property name="allowedAnnotations" value="Override, Bean"/>
+        </module>
+        <!-- Private/package methods only when they are "complex" (> 10 lines) -->
+        <module name="MissingJavadocMethod">
+            <property name="id" value="complexPrivateMethods"/>
+            <property name="scope" value="private"/>
+            <property name="excludeScope" value="protected"/>
+            <property name="minLineCount" value="15"/>
+        </module>
+
+        <!-- When a Javadoc exists, its @param/@return/@throws must match the signature -->
+        <module name="JavadocMethod">
+            <property name="accessModifiers" value="public, protected, package, private"/>
+        </module>
+        <module name="SummaryJavadoc"/>
+    </module>
+</module>

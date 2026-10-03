@@ -1,0 +1,56 @@
+${AnsiColor.BRIGHT_RED}**             .
+                        ${AnsiColor.BRIGHT_RED}****               *
+       ${AnsiColor.BRIGHT_RED}.                             ****         *     **.
+       ${AnsiColor.BRIGHT_RED}*                 *          ****  *      **    **
+       ${AnsiColor.BRIGHT_RED}*              * *       *   ****  *      **     *
+       ${AnsiColor.BRIGHT_RED}*             *         *    ******   *  *
+       ${AnsiColor.BRIGHT_RED}*             **.       **   **********    *             **
+        ${AnsiColor.BRIGHT_RED}*             ***   * ************* *    *  * .          .
+                ${AnsiColor.BRIGHT_RED}.*     **   **************      **    **    .
+           ${AnsiColor.BRIGHT_RED}*      *    **   ***************   *****  ***   **
+            ${AnsiColor.BRIGHT_RED}***        *** ***********************  *** .   *
+  ${AnsiColor.BRIGHT_RED}*    .  *  .**    *  ***********.***   ***** ***  *       *
+   ${AnsiColor.BRIGHT_RED}*    ****  **  * ** ********* *** ********  *****   **   *
+    ${AnsiColor.BRIGHT_RED}*   *****  *   **** **  * *.******* *********** * ***
+          ${AnsiColor.BRIGHT_RED}* ${AnsiColor.WHITE}. *  **${AnsiColor.BRIGHT_RED}********* ********* * ********** *  **
+${AnsiColor.BRIGHT_RED}*      .   ${AnsiColor.WHITE}******** ${AnsiColor.BRIGHT_RED}****.************* *******    *.* *.
+       ${AnsiColor.BRIGHT_RED}** ${AnsiColor.WHITE}*      .  ${AnsiColor.BRIGHT_RED}************* **** *****       *  * *
+    ${AnsiColor.BRIGHT_RED}* ***    ${AnsiColor.WHITE}* * **  ${AnsiColor.BRIGHT_RED}* ******** * ********        .*.****
+     ${AnsiColor.BRIGHT_RED}****.  ${AnsiColor.WHITE}**   ${AnsiColor.BRIGHT_RED}*     *. ** *** .* ****   *      ** *.**
+     ${AnsiColor.BRIGHT_RED}****.     ${AnsiColor.WHITE}* *. *   ${AnsiColor.BRIGHT_RED}**********               ** ****
+     ${AnsiColor.BRIGHT_RED}****  ${AnsiColor.WHITE}*   * .  .   ${AnsiColor.BRIGHT_RED}* ********* * **      *** ***** ${AnsiColor.WHITE}*
+   ${AnsiColor.BRIGHT_RED}.  .*  ${AnsiColor.WHITE}*  ***.  .***  ${AnsiColor.BRIGHT_RED}* ** ***  *** **********  *** ${AnsiColor.WHITE}* **
+           ${AnsiColor.WHITE}**  ******   *   ${AnsiColor.BRIGHT_RED}* ******  ***       .*** ${AnsiColor.WHITE}*  ** *
+      ${AnsiColor.BRIGHT_RED}**  .           ${AnsiColor.WHITE}** **   ${AnsiColor.BRIGHT_RED}********  *********${AnsiColor.WHITE}**  ***  * *
+       ${AnsiColor.BRIGHT_RED}*          ${AnsiColor.WHITE}******.**  ${AnsiColor.BRIGHT_RED}* ***   **    .**** ${AnsiColor.WHITE}****  .**..*
+                ${AnsiColor.WHITE}**.******** ${AnsiColor.BRIGHT_RED}.***** **  ****** *.   ${AnsiColor.WHITE}** .   .*
+                  ${AnsiColor.WHITE}***   . **        ${AnsiColor.BRIGHT_RED}*** ${AnsiColor.WHITE}***. ${AnsiColor.BRIGHT_RED}*        ${AnsiColor.WHITE}****
+                ${AnsiColor.WHITE}***** *** * *  ${AnsiColor.BRIGHT_RED}*****   ${AnsiColor.WHITE}******
+             ${AnsiColor.WHITE}*******                     *******
+        ${AnsiColor.WHITE}*********    *                **    ${AnsiColor.BRIGHT_RED}.${AnsiColor.WHITE}**********
+               ${AnsiColor.BRIGHT_RED}***   ${AnsiColor.WHITE}**. ${AnsiColor.BRIGHT_RED}***********  ${AnsiColor.WHITE}*${AnsiColor.BRIGHT_RED}.   **
+                ${AnsiColor.BRIGHT_RED}*********          *********
+                      ${AnsiColor.BRIGHT_RED}*** ******** ***
+                        ${AnsiColor.BRIGHT_RED}*************.
+                          ${AnsiColor.BRIGHT_RED}**********
+${AnsiColor.DEFAULT}
+${AnsiColor.DEFAULT}
+     ${AnsiColor.BRIGHT_CYAN}_______       ${AnsiColor.BRIGHT_MAGENTA}_____    ${AnsiColor.BRIGHT_YELLOW}____
+    ${AnsiColor.BRIGHT_CYAN}/ ____/ |     ${AnsiColor.BRIGHT_MAGENTA}/ /   |  / ${AnsiColor.BRIGHT_YELLOW}__ \
+   ${AnsiColor.BRIGHT_CYAN}/ / __ | | /| ${AnsiColor.BRIGHT_MAGENTA}/ / /| | / ${AnsiColor.BRIGHT_YELLOW}/_/ /
+  ${AnsiColor.BRIGHT_CYAN}/ /_/ / | |/ |${AnsiColor.BRIGHT_MAGENTA}/ / ___ |/ _${AnsiColor.BRIGHT_YELLOW}___/
+  ${AnsiColor.BRIGHT_CYAN}\____/  |__/|_${AnsiColor.BRIGHT_MAGENTA}_/_/  |_/_/
+
+${AnsiStyle.BOLD}${AnsiColor.BRIGHT_CYAN}  G A L A C T I C   W A R   A N A L Y T I C S   P L A T F O R M${AnsiStyle.NORMAL}
+${AnsiColor.BRIGHT_MAGENTA}  [ SUPER EARTH NETRUNNER DIVISION // CLASSIFIED ]
+${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_YELLOW}  >> MANAGED DEMOCRACY PROTOCOL ......... ${AnsiColor.BRIGHT_GREEN}ONLINE
+${AnsiColor.BRIGHT_YELLOW}  >> NEURAL LINK TO SUPER DESTROYER ..... ${AnsiColor.BRIGHT_GREEN}ESTABLISHED
+${AnsiColor.BRIGHT_YELLOW}  >> WAR DATA UPLINK .................... ${AnsiColor.BRIGHT_GREEN}STREAMING
+${AnsiColor.BRIGHT_YELLOW}  >> CORPO FIREWALLS .................... ${AnsiColor.BRIGHT_RED}BREACHED FOR FREEDOM
+${AnsiColor.BRIGHT_YELLOW}  >> SPRING BOOT ${spring-boot.version:n/a} ................ ${AnsiColor.BRIGHT_GREEN}LIBERTY LOADED
+${AnsiColor.BRIGHT_MAGENTA}
+  ${AnsiStyle.BOLD}GWAP v${app.version}${AnsiStyle.NORMAL} ${AnsiColor.BRIGHT_MAGENTA}// ANALYZING THE FRONT LINES IN REAL TIME
+${AnsiColor.BRIGHT_CYAN}  "Citizen, uptime is mandatory. Unlogged casualties are treason."
+${AnsiColor.BRIGHT_RED}  FOR SUPER EARTH. FOR THE DATA. FOR MANAGED DEMOCRACY.
+${AnsiColor.DEFAULT}

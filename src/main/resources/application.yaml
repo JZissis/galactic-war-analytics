@@ -1,3 +1,5 @@
+app:
+  version: "@project.version@"
 spring:
   application:
     name: galactic.war.analytics.platform
@@ -9,6 +11,10 @@ helldivers-api-rest:
   super-client: galactic-war-analytics-platform
   super-contact: https://github.com/JZissis/galactic-war-analytics
   connection-manager-metrics-tag: helldivers-api
+  # The /raw endpoints proxy ArrowHead's servers and often take 5-10s to answer. Read and socket
+  # timeouts must cover that, or every attempt is cut off and retries cannot help.
+  read-timeout-millis: 10000
+  socket-timeout-millis: 10000
   endpoints:
     raw:
       current-war-id-url: /raw/api/WarSeason/current/WarID

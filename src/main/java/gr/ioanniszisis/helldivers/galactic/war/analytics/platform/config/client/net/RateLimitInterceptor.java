@@ -8,6 +8,12 @@ import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
 
+/**
+ * Logs the Helldivers API rate-limit budget after each response.
+ *
+ * <p>Reads the {@code X-RateLimit-Remaining} header: logs it at DEBUG, and at WARN when one or zero
+ * requests remain in the current window. The interceptor only observes; it never blocks or retries.
+ */
 @Slf4j
 public class RateLimitInterceptor implements ClientHttpRequestInterceptor {
 
