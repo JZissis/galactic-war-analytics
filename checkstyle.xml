@@ -3,7 +3,21 @@
         "https://checkstyle.org/dtds/configuration_1_3.dtd">
 <module name="Checker">
     <property name="severity" value="warning"/>
+    <!-- Tests are checked too (for the import rule), but need no Javadoc -->
+    <module name="SuppressionSingleFilter">
+        <property name="files" value="[\/]src[\/]test[\/]"/>
+        <property name="checks" value="Javadoc"/>
+    </module>
     <module name="TreeWalker">
+        <!-- JDK types come from "import module java.base;" (JEP 511), never single-type or static java.* imports -->
+        <module name="IllegalImport">
+            <!-- Matches type imports (a capitalised class name or *), so the module import "java.base" itself passes -->
+            <property name="regexp" value="true"/>
+            <property name="illegalPkgs" value="^sun$"/>
+            <property name="illegalClasses" value="^java\.([a-z0-9_]+\.)*([A-Z].*|\*)$"/>
+            <message key="import.illegal"
+                     value="Import ''{0}'' from the JDK through ''import module java.base;'' instead."/>
+        </module>
         <!-- Every class, interface, enum and record needs a Javadoc -->
         <module name="MissingJavadocType">
             <property name="scope" value="private"/>

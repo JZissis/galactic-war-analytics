@@ -11,7 +11,7 @@ import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.core5.util.Timeout;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
-import java.time.Duration;
+import module java.base;
 
 /**
  * Creates Apache HttpClient 5 based request factories for Spring's {@code RestClient}.

@@ -2,8 +2,7 @@ package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldiv
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.v1.Planet;
-import java.time.Instant;
-import java.util.List;
+import module java.base;
 
 /**
  * Represents a Super Earth Democracy Space Station.

@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.v1;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.math.BigInteger;
+import module java.base;
 
 /**
  * A region on a planet. The Name and Description fields may be empty when the underlying data store

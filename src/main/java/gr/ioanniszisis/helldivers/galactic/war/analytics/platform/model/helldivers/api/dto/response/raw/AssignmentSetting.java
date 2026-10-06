@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.raw;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.List;
+import module java.base;
 
 /**
  * Contains the details of an Assignment like reward and requirements.

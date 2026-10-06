@@ -8,13 +8,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriBuilder;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Supplier;
-
-import static java.util.Objects.nonNull;
+import module java.base;
 
 /**
  * Thin wrapper around Spring's {@link RestClient} for JSON {@code GET} calls.
@@ -146,10 +140,10 @@ public class GenericRestClient {
      */
     private <T> T execute(Supplier<T> apiCall) {
         Supplier<T> decorated = apiCall;
-        if (nonNull(rateLimiter)) {
+        if (Objects.nonNull(rateLimiter)) {
             decorated = RateLimiter.decorateSupplier(rateLimiter, decorated);
         }
-        if (nonNull(retry)) {
+        if (Objects.nonNull(retry)) {
             decorated = Retry.decorateSupplier(retry, decorated);
         }
         return decorated.get();
@@ -169,7 +163,7 @@ public class GenericRestClient {
     }
 
     private static void addCustomHeaders(HttpHeaders headers, HttpHeaders customHeaders) {
-        if (nonNull(customHeaders)) {
+        if (Objects.nonNull(customHeaders)) {
             headers.putAll(customHeaders);
         }
     }

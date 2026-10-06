@@ -6,7 +6,7 @@ import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 
-import java.io.IOException;
+import module java.base;
 
 /**
  * Logs the Helldivers API rate-limit budget after each response.

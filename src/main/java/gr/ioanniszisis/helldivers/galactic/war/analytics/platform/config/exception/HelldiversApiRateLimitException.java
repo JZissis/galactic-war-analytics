@@ -2,7 +2,7 @@ package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.config.except
 
 import lombok.Getter;
 
-import java.time.Duration;
+import module java.base;
 
 /**
  * Thrown when the Helldivers API answers with {@code 429 Too Many Requests}.

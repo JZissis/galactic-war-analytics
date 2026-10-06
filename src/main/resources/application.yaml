@@ -5,6 +5,11 @@ spring:
     name: galactic.war.analytics.platform
   profiles:
     default: dev
+  threads:
+    virtual:
+      # Safe since JDK 24 (JEP 491): synchronized blocks no longer pin virtual threads to carriers.
+      # Request handling and @Scheduled jobs then block cheaply on API retries and rate-limit waits.
+      enabled: true
 
 helldivers-api-rest:
   base-url: https://api.helldivers2.dev
@@ -26,12 +31,12 @@ helldivers-api-rest:
       space-station-info-url: /raw/api/v2/SpaceStation/War/{warId}/{index}
     v1:
       current-war-state-url: /api/v1/war
-      available-assignments-url: /api/v1/assignments # for specific assignment, append /{index}
-      available-campaigns-url: /api/v1/campaigns # for specific campaign, append /{index}
-      available-dispatches-url: /api/v1/dispatches # for specific dispatch, append /{index}
-      planet-info-url: /api/v1/planets # for specific planet, append /{index}
+      available-assignments-url: /api/v1/assignments # for a specific assignment, append /{index}
+      available-campaigns-url: /api/v1/campaigns # for a specific campaign, append /{index}
+      available-dispatches-url: /api/v1/dispatches # for a specific dispatch, append /{index}
+      planet-info-url: /api/v1/planets # for a specific planet, append /{index}
       planet-events-url: /api/v1/planet-events
-      steam-news-feed-url: /api/v1/steam # for specific news item, append /{gid} - this is the Steam GID
+      steam-news-feed-url: /api/v1/steam # for a specific news item, append /{gid} - this is the Steam GID
     v2:
-      available-dispatches-url: /api/v2/dispatches # for specific dispatch, append /{index}
-      space-station-info-url: /api/v2/space-stations # for specific space station, append /{index}
+      available-dispatches-url: /api/v2/dispatches # for a specific dispatch, append /{index}
+      space-station-info-url: /api/v2/space-stations # for a specific space station, append /{index}

@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.v1;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.List;
+import module java.base;
 
 /**
  * Contains all aggregated information AH has about a planet.

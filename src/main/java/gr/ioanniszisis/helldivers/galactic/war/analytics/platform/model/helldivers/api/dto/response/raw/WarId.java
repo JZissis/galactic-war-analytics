@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.raw;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.math.BigInteger;
+import module java.base;
 
 /**
  * Represents the ID returned from the WarID endpoint.

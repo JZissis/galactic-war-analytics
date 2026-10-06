@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.raw;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.math.BigInteger;
+import module java.base;
 
 /**
  * A region of a planet, containing information about its health and size.

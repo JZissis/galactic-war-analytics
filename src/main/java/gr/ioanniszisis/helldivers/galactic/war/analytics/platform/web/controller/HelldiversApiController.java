@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigInteger;
+import module java.base;
 
 /**
  * REST endpoints that expose Helldivers Galactic War data, under {@code /api/helldivers}.

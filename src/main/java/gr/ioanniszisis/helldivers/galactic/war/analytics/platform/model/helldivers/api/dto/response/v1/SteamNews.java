@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.v1;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.time.Instant;
+import module java.base;
 
 /**
  * Represents a new article from Steam's news feed.

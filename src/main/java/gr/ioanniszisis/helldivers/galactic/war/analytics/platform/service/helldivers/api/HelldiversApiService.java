@@ -7,8 +7,7 @@ import gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldive
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
-import java.util.Optional;
+import module java.base;
 
 /**
  * Reads Galactic War data from the Helldivers API.

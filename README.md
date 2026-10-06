@@ -18,7 +18,7 @@ Built as a portfolio project — see the [Roadmap](#roadmap) for the planned bui
 
 ## Local Development
 
-Prerequisites: Java 21, Docker.
+Prerequisites: Java 25, Docker.
 
 ```bash
 docker compose up -d

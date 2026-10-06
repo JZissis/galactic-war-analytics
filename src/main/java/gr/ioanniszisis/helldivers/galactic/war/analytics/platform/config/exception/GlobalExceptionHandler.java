@@ -109,12 +109,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      * @return the response entity
      */
     private static ResponseEntity<ProblemDetail> buildProblemDetailResponseEntity(Exception ex, ProblemDetail problemDetail, HttpStatus status) {
-        if (ex instanceof HelldiversApiRateLimitException hex) {
-            return ResponseEntity.status(status).header(HttpHeaders.RETRY_AFTER, String.valueOf(hex.getRetryAfter().toSeconds())).body(problemDetail);
-        } else if (ex instanceof RequestNotPermitted) {
-            String retryAfterSeconds = String.valueOf(HelldiversApiResilienceConfig.LIMIT_REFRESH_PERIOD.toSeconds());
-            return ResponseEntity.status(status).header(HttpHeaders.RETRY_AFTER, retryAfterSeconds).body(problemDetail);
-        }
-        return ResponseEntity.status(status).body(problemDetail);
+        return switch (ex) {
+            case HelldiversApiRateLimitException hex -> ResponseEntity.status(status)
+                    .header(HttpHeaders.RETRY_AFTER, String.valueOf(hex.getRetryAfter().toSeconds()))
+                    .body(problemDetail);
+            case RequestNotPermitted _ -> ResponseEntity.status(status)
+                    .header(HttpHeaders.RETRY_AFTER, String.valueOf(HelldiversApiResilienceConfig.LIMIT_REFRESH_PERIOD.toSeconds()))
+                    .body(problemDetail);
+            default -> ResponseEntity.status(status).body(problemDetail);
+        };
     }
 }

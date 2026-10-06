@@ -11,8 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.ResourceAccessException;
 
-import java.time.Duration;
-import java.util.Set;
+import module java.base;
 
 /**
  * Resilience4j setup for calls to the Helldivers API.

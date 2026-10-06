@@ -2,7 +2,7 @@ package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldiv
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
+import module java.base;
 
 /**
  * Gets general statistics about the galaxy and specific planets.

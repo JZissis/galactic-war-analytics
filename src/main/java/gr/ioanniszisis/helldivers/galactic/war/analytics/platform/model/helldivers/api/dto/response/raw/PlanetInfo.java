@@ -1,7 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.raw;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.util.List;
+import module java.base;
 
 /**
  * Represents information of a planet from the 'WarInfo' endpoint returned by ArrowHead's API.

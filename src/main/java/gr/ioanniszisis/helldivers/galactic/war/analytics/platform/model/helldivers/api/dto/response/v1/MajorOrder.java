@@ -1,8 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.v1;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.time.Instant;
-import java.util.List;
+import module java.base;
 
 /**
  * Represents an assignment given by Super Earth to the community. This is also known as 'Major Order's

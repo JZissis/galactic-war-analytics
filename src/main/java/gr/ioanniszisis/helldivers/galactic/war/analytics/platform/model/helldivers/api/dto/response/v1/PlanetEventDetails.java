@@ -1,8 +1,7 @@
 package gr.ioanniszisis.helldivers.galactic.war.analytics.platform.model.helldivers.api.dto.response.v1;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.time.Instant;
-import java.util.List;
+import module java.base;
 
 /**
  * An ongoing event on a Planet.

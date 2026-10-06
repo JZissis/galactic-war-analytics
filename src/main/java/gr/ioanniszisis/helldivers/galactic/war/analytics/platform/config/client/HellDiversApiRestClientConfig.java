@@ -14,7 +14,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.RestClient;
 
-import java.time.Duration;
+import module java.base;
 
 /**
  * Builds the {@link GenericRestClient} used to call the Helldivers API.
@@ -54,7 +54,7 @@ public class HellDiversApiRestClientConfig {
                 .requestInterceptor(new RateLimitInterceptor())
                 .defaultStatusHandler(
                         status -> status.value() == HttpStatus.TOO_MANY_REQUESTS.value(),
-                        (request, response) -> {
+                        (_, response) -> {
                             throw new HelldiversApiRateLimitException(parseRetryAfter(response.getHeaders()));
                         })
                 .build();
@@ -74,7 +74,7 @@ public class HellDiversApiRestClientConfig {
         if (retryAfter != null) {
             try {
                 return Duration.ofSeconds(Long.parseLong(retryAfter.trim()));
-            } catch (NumberFormatException ignored) {
+            } catch (NumberFormatException _) {
                 // Retry-After may also be an HTTP-date; fall through to the default window
             }
         }
