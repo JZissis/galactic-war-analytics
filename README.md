@@ -9,7 +9,7 @@ Built as a portfolio project — see the [Roadmap](#roadmap) for the planned bui
 
 ## Tech Stack
 
-- Java 21, Spring Boot 4
+- Java 25, Spring Boot 4
 - Spring Data JPA + PostgreSQL, Flyway migrations
 - Spring Security + OAuth2 client
 - Resilience4j (circuit breaker / retry) around the external API
@@ -27,6 +27,9 @@ docker compose up -d
 
 The app defaults to the `dev` profile (Postgres via docker-compose on `localhost:5432`).
 Tests run under the `test` profile (in-memory H2).
+
+New to the project? Start with the [Onboarding Guide](docs/ONBOARDING.md) and the
+[Learning Path](docs/LEARNING-PATH.md).
 
 ## Roadmap
 
